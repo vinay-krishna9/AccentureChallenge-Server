@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 require('dotenv').config();
 require("./config/database").connect();
+const user = require("./routes/user");
 
 var corsOptions = {
   origin: "http://localhost:4200"
@@ -13,6 +14,8 @@ const app = express();
 app.use(bodyParser.json())
 app.use(morgan('dev'));
 app.use(cors(corsOptions))
+
+app.use("/user", user)
 
 app.get('/', (req, res, err) => {
     res.send("Hello World!!!")
