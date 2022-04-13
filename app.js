@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan')
 const cors = require('cors')
+require('dotenv').config();
+require("./config/database").connect();
 
 var corsOptions = {
   origin: "http://localhost:4200"
@@ -16,7 +18,7 @@ app.get('/', (req, res, err) => {
     res.send("Hello World!!!")
 })
 
-const port = 3000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
