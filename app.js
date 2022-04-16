@@ -5,6 +5,7 @@ const cors = require("cors");
 require("dotenv").config();
 require("./config/database").connect();
 const user = require("./routes/user");
+const aqi = require("./routes/aqi");
 const app = express();
 
 var corsOptions = {
@@ -16,6 +17,7 @@ app.use(morgan("dev"));
 app.use(cors(corsOptions));
 
 app.use("/user", user);
+app.use("/country", aqi);
 
 app.get("/", (req, res, err) => {
   res.send("Hello World!!!");
