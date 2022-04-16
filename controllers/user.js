@@ -27,14 +27,14 @@ exports.login = (req, res) => {
           if (err) {
             return res.status(404).json({ message: "User exists" });
           } else {
-            let token = userToken(user._id)
+            let token = userToken(user._id);
             res.status(200).json({
               token,
             });
           }
         });
       } else if (bcrypt.compareSync(password, user.password)) {
-        let token = userToken(user._id)
+        let token = userToken(user._id);
         res.status(200).json({
           token,
         });
