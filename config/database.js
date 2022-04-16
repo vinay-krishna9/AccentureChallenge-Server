@@ -5,7 +5,7 @@ const { MONGO_URI_LOCALDEV } = process.env;
 exports.connect = () => {
   mongoose
     .connect(MONGO_URI_LOCALDEV, {
-      useNewUrlParser: true
+      useNewUrlParser: true,
     })
     .then(() => {
       console.log("Successfully connected to database");
