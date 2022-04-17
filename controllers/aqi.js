@@ -11,11 +11,17 @@ exports.findAllCountries = (req, res) => {
         if (err) {
           res.status(404).json({ message: "Data unavailable" });
         }
-        res.status(200).json({
-          pageSize: pageSize,
-          page: page,
-          total: totalPages,
-          data: data,
+        aqiModel.countDocuments({}, (err, count) => {
+          if (err) {
+            res.status(404).json({ message: "Data unavailable" });
+          }
+          var totalPages = Math.ceil(count / pageSize);
+          res.status(200).json({
+            pageSize: pageSize,
+            page: page,
+            total: totalPages,
+            data: data,
+          });
         });
       })
       .limit(pageSize)
