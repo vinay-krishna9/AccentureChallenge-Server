@@ -4,8 +4,6 @@ exports.findAllCountries = (req, res) => {
   try {
     const page = req.query.page ? parseInt(req.query.page) : 0;
     const pageSize = 10;
-    var totalPages = Math.ceil(3963 / pageSize);
-    console.log(totalPages);
     aqiModel
       .find({}, (err, data) => {
         if (err) {
