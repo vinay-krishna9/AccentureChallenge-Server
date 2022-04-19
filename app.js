@@ -9,7 +9,12 @@ const aqi = require("./routes/aqi");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8100",
+  origin: [
+    "capacitor://localhost",
+    "ionic://localhost",
+    "http://localhost",
+    "http://localhost:8100",
+  ],
 };
 
 app.use(bodyParser.json());
