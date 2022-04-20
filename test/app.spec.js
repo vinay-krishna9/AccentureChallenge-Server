@@ -4,6 +4,8 @@ const chaiHttp = require("chai-http");
 const should = chai.should();
 
 var app = require("../app");
+const token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjVlYWZiMzc4Mzk3NzJhOWZmNWJhNDAiLCJpYXQiOjE2NTAzOTAxMjN9.3JIQ9rQ-AL4ksYENauQ34k9VQLE119tV7511Ysywfos";
 
 chai.use(chaiHttp);
 
@@ -65,8 +67,6 @@ describe("User login", () => {
 });
 
 describe("Air quality index of all countries", () => {
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjVlYWZiMzc4Mzk3NzJhOWZmNWJhNDAiLCJpYXQiOjE2NTAzOTAxMjN9.3JIQ9rQ-AL4ksYENauQ34k9VQLE119tV7511Ysywfos";
   it("get list of all countries", (done) => {
     chai
       .request(app)
@@ -88,8 +88,6 @@ describe("Air quality index of all countries", () => {
 });
 
 describe("details of a country with id", () => {
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjVlYWZiMzc4Mzk3NzJhOWZmNWJhNDAiLCJpYXQiOjE2NTAzOTAxMjN9.3JIQ9rQ-AL4ksYENauQ34k9VQLE119tV7511Ysywfos";
   const id = "625afdd7bf74ece411fd1395";
   it("get details of a country", (done) => {
     chai
